@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>POST-CORONA LAB</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/assets/images/favicon.png">
+
+    <link href="/static/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
+    <link href="/static/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="/static/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <link href="/static/dist/css/style.min.css" rel="stylesheet">
+    <link href="/static/assets/libs/morris.js/morris.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166261525-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-166261525-1');
+    </script>
+
+
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <div class="navbar-brand">
+
+
+                        <a href="index">
+
+                            <span class="logo-text">
+
+                                <img src="/static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="/static/assets/images/logo-light-text.png" class="light-logo"
+                                    alt="homepage" />
+                            </span>
+                        </a>
+                    </div>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+                        data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                            class="ti-more"></i></a>
+                </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index"
+                                aria-expanded="false"><i class="icon-plane"></i><span
+                                    class="hide-menu">Cov-Tech</span></a></li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link" href="http://ncov.mohw.go.kr/"
+                                aria-expanded="false">
+                                <span class="hide-menu"> COVID-19</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="http://www.cdc.go.kr/cdc/"
+                                aria-expanded="false">
+                                <!-- <img src="/static/assets/images/users/widget-table-pic1.jpg" width="45" height="45" /> -->
+                                <span class="hide-menu"> KCDC</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="http://www.mohw.go.kr/react/index.jsp"
+                                aria-expanded="false">
+                                <span class="hide-menu"> MOHW</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="https://www.who.int/"
+                                aria-expanded="false">
+                                <span class="hide-menu"> WHO</span></a>
+                        </li>
+
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu"><i class=" fas fa-hashtag"></i>Thanks
+                                to</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link"
+                                href="https://www.youtube.com/watch?v=o-i6jw1t8Yk&feature=youtu.be"
+                                aria-expanded="false">
+                                <i class="icon-social-youtube"></i>
+                                <span class="hide-menu">YOUTUBE</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link"
+                                href="https://mobile.twitter.com/hashtag/%EB%8D%95%EB%B6%84%EC%97%90?src=hashtag_click"
+                                aria-expanded="false">
+                                <i class="icon-social-twitter"></i>
+                                <span class="hide-menu">TWITTER</span></a>
+                        </li>
+
+                        <li><img src="/static/assets/images/Thanks to.png" width="200" height="220" /> </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Daily Confirmed Case of
+                            Covid-19</h3>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item"><a href="index">Prediction</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-5 align-self-center">
+                        <div class="customize-input float-right">
+                            <h>Last Updated : </h><br />
+                            <h>2020/04/28, 9:00am GMT+9</h>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="card-group">
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">{{ total_cases.China }}</h2>
+                                        <span
+                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">{{ daily_cases.China }}</span>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">China</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">{{ total_cases.Asia }}</h2>
+                                        <span
+                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">{{ daily_cases.Asia }}</span>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Asia</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">{{ total_cases.Europe }}</h2>
+                                        <span
+                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">{{ daily_cases.Europe }}</span>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Europe</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">{{ total_cases.America }}</h2>
+                                        <span
+                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">{{ daily_cases.America }}</span>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">America</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">{{ total_cases.Africa }}</h2>
+                                        <span
+                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">{{ daily_cases.Africa }}</span>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Africa</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <div class="d-inline-flex align-items-center">
+                                        <h2 class="text-dark mb-1 font-weight-medium">{{ total_cases.Oceania }}</h2>
+                                        <span
+                                            class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">{{ daily_cases.Oceania }}</span>
+                                    </div>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Oceania</h6>
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Proportion</h4>
+                                <br />
+                                <div id="campaign-v2" class="mt-2" style="height:280px; width:100%;"></div>
+                                <div class="table-responsive">
+                                    <table style="width: 100%; height: 100%;">
+                                        <tbody>
+                                            <tr>
+                                                <td>　　　</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #01caf1;"></i>China</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #ff4f70;"></i>Asia</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>　　　</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #5f76e8;"></i>America</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #fdc16a;"></i>Europe</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>　　　</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #d5dce5;"></i>Africa</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #22ca80;"></i>Oceania</td>
+                                                <td>　</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Case Comparison</h4>
+                                <div class="net-income mt-4 position-relative" style="height:294px;"></div>
+                                <ul class="list-inline text-center mt-5 mb-2">
+                                    <li class="list-inline-item text-muted font-italic">Confrimed Cases</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card" >
+                            <div class="card-body">
+                                <h4 class="card-title">Confirm : Death</h4>
+                                <canvas id="radar-chart" style="height:390px; width:450px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <h4 class="card-title mb-0">Daily Confirmed Case by Continent</h4>
+                                </div>
+                                <div class="pl-4 mb-5">
+                                    <div id="morris-area-chart" style="height: 350px; width: 100%;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Total Confirmed Case by Continent</h4>
+                                <br />
+                                <div id="campaign-v2-sum" class="mt-2" style="height:280px; width:100%;"></div>
+                                <div class="table-responsive">
+                                    <table style="width: 100%; height: 100%;">
+                                        <tbody>
+                                            <tr>
+                                                <td>　　　</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #01caf1;"></i>China</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #ff4f70;"></i>Asia</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>　　　</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #5f76e8;"></i>America</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #fdc16a;"></i>Europe</td>
+                                                <td>　</td>
+                                            </tr>
+                                            <tr>
+                                                <td>　　　</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #d5dce5;"></i>Africa</td>
+                                                <td style="font-size: 15px;"><i class="fas fa-circle font-10 mr-2"
+                                                        style="color: #22ca80;"></i>Oceania</td>
+                                                <td>　</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <h4 class="card-title mb-0">Daily Negative News Rate</h4>
+                                </div>
+                                <div class="pl-4 mb-5">
+                                    <div id='morris-line-chart' style="height: 350px;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">News Keyword by Continent ( Apr~ )</h4>
+                                <div class="" style="height:180px">
+                                    <div id="visitbylocate" style="height:100%"></div>
+                                </div>
+                                <br />
+                                <div class="table-responsive" style="height:170px">
+                                    <table class="table">
+                                        <tbody>
+                                            <thead class="text-muted">
+                                                <tr>
+                                                    <th>　</th>
+                                                    <th>Medical</th>
+                                                    <th>Outbreak</th>
+                                                </tr>
+                                            </thead>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>{{keyword.0}}</td>
+                                                <td>{{keyword.3}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>{{keyword.1}}</td>
+                                                <td>{{keyword.4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>{{keyword.2}}</td>
+                                                <td>{{keyword.5}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4">
+                                    <h4 class="card-title">Top Leaders</h4>
+
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table no-wrap v-middle mb-0">
+                                        <thead>
+                                            <tr class="border-0">
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Team Lead
+                                                </th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted px-2">Univers
+                                                </th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Team</th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted text-center">
+                                                    Graduation's degree
+                                                </th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Budget</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="border-top-0 px-2 py-4">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <div class="mr-3"><img
+                                                                src="/static/assets/images/users/owner.png" alt="user"
+                                                                class="rounded-circle" width="45" height="45" />
+                                                        </div>
+                                                        <div class="">
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Jihye
+                                                                Kang</h5>
+                                                            <span class="text-muted font-14">Owner</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="border-top-0 text-muted px-2 py-4 font-14">JNU</td>
+                                                <td class="border-top-0 px-2 py-4">
+                                                    <div class="popover-icon">
+                                                        <a class="btn btn-primary rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CEO</a>
+                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CBO</a>
+                                                        <a class="btn btn-cyan rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CFO</a>
+                                                            </div>
+                                                </td>
+                                                <td
+                                                    class="border-top-0 text-center font-weight-medium text-muted px-2 py-4">
+                                                    Bachelor
+                                                </td>
+                                                <td class="font-weight-medium text-dark border-top-0 px-2 py-4">$0
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-4">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <div class="mr-3"><img
+                                                                src="/static/assets/images/users/winner.png" alt="user"
+                                                                class="rounded-circle" width="45" height="45" />
+                                                        </div>
+                                                        <div class="">
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">Dawon
+                                                                Lee
+                                                            </h5>
+                                                            <span class="text-muted font-14">Winner</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-muted px-2 py-4 font-14">PKNU</td>
+                                                <td class="px-2 py-4">
+                                                    <div class="popover-icon">
+                                                        <a class="btn btn-primary rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">COO</a>
+                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CHO</a>
+                                                        <a class="btn btn-cyan text-white rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CRO</a>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center text-muted font-weight-medium px-2 py-4">Bachelor
+                                                </td>
+                                                <td class="font-weight-medium text-dark px-2 py-4">2M</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-4">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <div class="mr-3"><img
+                                                                src="/static/assets/images/users/corner.png" alt="user"
+                                                                class="rounded-circle" width="45" height="45" />
+                                                        </div>
+                                                        <div class="">
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">
+                                                                Dongjin Lee
+                                                            </h5>
+                                                            <span class="text-muted font-14">Corner</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-muted px-2 py-4 font-14">PNU</td>
+                                                <td class="px-2 py-4">
+                                                    <div class="popover-icon">
+                                                        <a class="btn btn-primary rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CMO</a>
+                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CCO</a>
+                                                        <a class="btn btn-cyan rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CKO</a>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center text-muted font-weight-medium px-2 py-4">Master
+                                                </td>
+                                                <td class="font-weight-medium text-dark px-2 py-4">2.1M</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-4">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <div class="mr-3"><img
+                                                                src="/static/assets/images/users/runner.png" alt="user"
+                                                                class="rounded-circle" width="45" height="45" />
+                                                        </div>
+                                                        <div class="">
+                                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">
+                                                                KyeongSu Byun
+                                                            </h5>
+                                                            <span class="text-muted font-14">Runner</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-muted px-2 py-4 font-14">PKNU</td>
+                                                <td class="px-2 py-4">
+                                                    <div class="popover-icon">
+                                                        <a class="btn btn-primary rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CTO</a>
+                                                        <a class="btn btn-danger rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CSO</a>
+                                                        <a class="btn btn-cyan text-white rounded-circle btn-circle font-12 popover-item"
+                                                            href="javascript:void(0)">CIO</a>
+                                                    </div>
+                                                </td>
+                                                <td class="text-center text-muted font-weight-medium px-2 py-4">Bachelor
+                                                </td>
+                                                <td class="font-weight-medium text-dark px-2 py-4">2M</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer text-center text-muted">
+                All Rights Reserved by Comm'IT. Designed and Developed by <a
+                    href="https://www.notion.so/8239545c75d04605a13048184ee5a8b8?v=22488b1f35c14df1ae74f5373935b8b3">Jihye
+                    Kang, aka Jenny</a>.
+            </footer>
+        </div>
+    </div>
+    <script src="/static/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/static/dist/js/pages/chartjs/chartjs.init.js"></script>
+    <script src="/static/assets/libs/chart.js/dist/Chart.min.js"></script>
+    <script src="/static/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/static/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/dist/js/app-style-switcher.js"></script>
+    <script src="/static/dist/js/feather.min.js"></script>
+    <script src="/static/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/static/dist/js/sidebarmenu.js"></script>
+    <script src="/static/assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="/static/dist/js/custom.min.js"></script>
+    <script src="/static/assets/extra-libs/c3/d3.min.js"></script>
+    <script src="/static/assets/extra-libs/c3/c3.min.js"></script>
+    <script src="/static/assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="/static/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="/static/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="/static/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/static/dist/js/pages/dashboards/dashboard1.js"></script>
+    <script src="/static/assets/libs/raphael/raphael.min.js"></script>
+    <script src="/static/assets/libs/morris.js/morris.min.js"></script>
+    <script src="/static/dist/js/pages/morris/morris-data.js"></script>
+    <script src="/static/assets/extra-libs/knob/jquery.knob.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-plugin="knob"]').knob();
+        });
+    </script>
+
+
+
+</body>
+
+</html>
